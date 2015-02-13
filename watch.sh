@@ -13,7 +13,7 @@ nodemon -e html,css --watch app \
   --exec "cd app; find . -type f \( -name '*.html' -o -name '*.css' \) | cpio -pdvm ../public; cd .." &
 
 nodemon --watch app/js \
-  --exec "cd app; find . -type f \( -name '*.js' \) | cpio -pdvm ../public; cd .." &
+  --exec "cd app; find . -type f \( -o -name '*.js' \) | cpio -pdvm ../public; cd .." &
 
 # Copy bower_components js files
 mkdir public/vendor
