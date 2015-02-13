@@ -1,12 +1,10 @@
-head
-body
-  .login
-    h1 Please Login or Register
-    form(action="#")
-      input(type="email", name="email", placeholder="user@example.com", required)
-      input(type="password", name="password", placeholder="p@s$w0RD123", required)
-      input(type="button", value="Register")
-      input(type="submit", value="Login")
-      .error
-
-  script(src="https://cdn.firebase.com/js/client/2.1.2/firebase.js")
+<div class="login">
+  <h1>Please Login or Register</h1>
+  <form action="#">
+    <input type="email" name="email" placeholder="user@example.com" required="required"/>
+    <input type="password" name="password" placeholder="p@s$w0RD123" required="required"/>
+    <input type="button" value="Register"/>
+    <input type="submit" value="Login"/>
+    <div class="error"></div>
+  </form>
+</div>
