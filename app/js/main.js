@@ -16,7 +16,7 @@ var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
     if (err) {
       $('.error').text(err);
     } else {
-      window.location.href='./test.html';
+      window.location.href='./register.html';
     }
   });
 });
