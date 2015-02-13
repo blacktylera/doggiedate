@@ -1,6 +1,17 @@
-@import "./foundation/scss/normalize";
-@import "./foundation/scss/foundation";
+@import "../vendor/normalize.css";
+@import "../vendor/foundation.css";
 
-body{
-background-color: blue;
+html body {
+background-color: white;
+}
+
+
+.registerTextArea {
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.registerText {
+  max-width:300px;
+
 }
