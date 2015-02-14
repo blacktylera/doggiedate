@@ -2,54 +2,74 @@ var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
     fb             = new Firebase(FIREBASE_URL),
     usersFb;
 
- if (fb.getAuth()) {
-  usersFb = fb.child('users/' + fb.getAuth().uid);
-   }
+//loginand register//
 
- $('.login input[type="button"]').click(function (event) {
-  var $loginForm = $('.loginForm'),
-      email      = $loginForm.find('[type="email"]').val(),
-      pass       = $loginForm.find('[type="password"]').val(),
-      data       = {email: email, password: pass};
+if (fb.getAuth()) {
+ usersFb = fb.child('users/' + fb.getAuth().uid);
+}
 
-   registerAndLogin(data, function (err, auth) {
-    if (err) {
-      $('.error').text(err);
-    } else {
+$('.login input[type="button"]').click(function (event) {
+ var $loginForm = $('.loginForm'),
+     email      = $loginForm.find('[type="email"]').val(),
+     pass       = $loginForm.find('[type="password"]').val(),
+     data       = {email: email, password: pass};
+
+  registerAndLogin(data, function (err, auth) {
+   if (err) {
+     $('.error').text(err);
+   } else {
       window.location.href='./register.html';
-    }
-  });
+   }
+ });
 });
 
- $('.login form').submit(function(event){
-  var $loginForm = $(event.target),
-      email      = $loginForm.find('[type="email"]').val(),
-      pass       = $loginForm.find('[type="password"]').val(),
-      data       = {email: email, password: pass};
+$('.login form').submit(function(event){
+ var $loginForm = $(event.target),
+     email      = $loginForm.find('[type="email"]').val(),
+     pass       = $loginForm.find('[type="password"]').val(),
+     data       = {email: email, password: pass};
 
-  event.preventDefault();
+ event.preventDefault();
 
-  fb.authWithPassword(data, function(err, auth) {
-		    if (err) {
-      $('.error').text(err);
-    } else {
-      window.location.href='./profile.html';
-    }
-  });
+ fb.authWithPassword(data, function(err, auth) {
+    if (err) {
+     $('.error').text(err);
+   } else {
+     window.location.href='./profile.html';
+   }
+ });
 });
 
 function registerAndLogin(obj, cb) {
-  fb.createUser(obj, function(err) {
-		    if (!err) {
-    			  fb.authWithPassword(obj, function (err, auth){
-        if (!err) {
-          cb(null, auth);
-        } else {
-          cb(err);
-        }
-      });
-    } else {
-      cb(err);
-    }
-  });
+ fb.createUser(obj, function(err) {
+   if (!err) {
+       fb.authWithPassword(obj, function (err, auth){
+       if (!err) {
+         cb(null, auth);
+       } else {
+         cb(err);
+       }
+     });
+   } else {
+     cb(err);
+   }
+ });
 }
+
+
+
+//pushing data to database as an event handler on the register form. And then taking you to your profile page where we can GET from firebase what we just pushed?
+//
+
+$('.Register form').submit(function(event){
+  var $pic = $('#regpic').val();
+  var $name = $('#regname').val();
+  var $username = $('#regusername').val();
+  var $about = $('#regabout').val();
+  var $regButton = $('#regbutton');
+  var profileData = ({'pic_url': $pic, 'name': $name, 'user_name': $username, 'about': $about});
+
+  event.preventDefault();
+  usersFb.push(profileData);
+  window.location.href='./profile.html';
+});

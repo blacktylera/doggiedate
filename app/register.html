@@ -14,15 +14,15 @@
     <h1>Register</h1>
     <form action="#">
       <p> Picture </p>
-        <input class="registerText" type="img" id=friendPhoto name="photo" placeholder="Share a photo!">
+        <input class="registerText" type="img" id="regpic" name="photo" placeholder="Share a photo!">
       <p> Name </p>
-        <input class="registerText"  type="text" name="name" placeholder="What is your name?" required="required"/>
+        <input class="registerText"  type="text" id="regname" name="name" placeholder="What is your name?" required="required"/>
       <p> User Name </p>
-        <input class="registerText"  type="text" name="text" placeholder="Desired username" required="required"/>
+        <input class="registerText"  type="text" id="regusername" name="text" placeholder="Desired username" required="required"/>
       <p> About You </p>
-      <textarea class="registerTextArea" name="textarea" rows="10" cols="50"> Tell us about yourself! </textarea>
+      <textarea class="registerTextArea" id="regabout" name="textarea" rows="10" cols="50"> Tell us about yourself! </textarea>
 
-      <p><input type="button" value="Let's Go Doggie Dating!"/></p>
+      <p><input type="submit" id="regbutton" value="Let's Go Doggie Dating!"/></p>
     </form>
   </div>
   <script src="vendor/jquery.min.js"></script>
