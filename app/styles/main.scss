@@ -1,8 +1,14 @@
 @import "../vendor/normalize.css";
 @import "../vendor/foundation.css";
 
+$primary-color: #ffcc5c; //orange
+$beige-color: #ffeead;
+$red-color: #ff6f69;
+$light-green: #88d8b0;
+$darker-green: #96ceb4;
+
 html body {
-background-color: white;
+background-color: $primary-color;
 }
 
 
