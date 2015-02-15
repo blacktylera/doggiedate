@@ -65,14 +65,23 @@ html {
 	}
 }
 
+html body .beigeContainer {
+	border: 3px solid $primary-color;
+	width: 70% ;
+	margin: 0 auto;
+	background-color:$beige-color;
+	height: 100%;
+}
+
 
 //register specific styls 
 
-html body .Register {
+html body .register {
 	border: 3px solid $primary-color;
 	width: 70% ;
 	margin: 0 auto;
 	background-color: $beige-color;
+	height: auto;
 }
 
 
