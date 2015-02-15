@@ -5,7 +5,7 @@ $primary-color: #ffcc5c; //orange
 $beige-color: #ffeead;
 $red-color: #ff6f69;
 $light-green: #88d8b0;
-$darker-green: #96ceb4;
+$darker-green: #87b9a2;
 $blue-color: #427092;
 
 
@@ -40,6 +40,9 @@ html form {
 	background-color: $light-green;
 	margin: 5%;
 }
+
+
+
 
 html {
 	height: 100%;
@@ -78,6 +81,13 @@ html{
 		div {
 			h5 {
 				margin: 2rem 0 0;
+			}
+
+			.button:hover {
+				background-color: $darker-green;
+			}
+			.button:focus {
+				background-color: $darker-green;
 			}
 		}
 	}
