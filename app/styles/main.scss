@@ -60,7 +60,7 @@ html {
 	h2, h3 {
 		font-family: $dancingScript;
 		color: $blue-color;
-		
+		margin: 3rem; 
 
 	}
 }
@@ -71,6 +71,16 @@ html body .beigeContainer {
 	margin: 0 auto;
 	background-color:$beige-color;
 	height: 100%;
+}
+
+html{
+	body{
+		div {
+			h5 {
+				margin: 2rem 0 0;
+			}
+		}
+	}
 }
 
 
