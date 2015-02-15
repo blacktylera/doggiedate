@@ -7,6 +7,8 @@ $red-color: #ff6f69;
 $light-green: #88d8b0;
 $darker-green: #96ceb4;
 
+$font-stack: 'Libre Baskerville', serif;
+
 
 html body {
 	width: 100%;
@@ -53,7 +55,7 @@ background-color: $light-green;
 html h1 {
 	color: $red-color;
     font-size: 3em;
-    font-family: 'Libre Baskerville', serif;
+    font-family: $font-stack;
     font-weight: bold;   
 }
 
