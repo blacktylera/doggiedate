@@ -5,24 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Title</title>
+  <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Dancing+Script:700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="vendor/foundation.css">
   <link rel="stylesheet" href="vendor/normalize.css">
 </head>
 <body>
-  <div class="Register">
-    <h1>Register</h1>
+  <div class="register beigeContainer">
+    <h1 class="center">Doggie Date</h1>
+    <h2 class="center">Register</h2>
     <form action="#">
-      <p> Picture </p>
-        <input class="registerText" type="img" id="regpic" name="photo" placeholder="Share a photo!">
-      <p> Name </p>
-        <input class="registerText"  type="text" id="regname" name="name" placeholder="What is your name?" required="required"/>
-      <p> User Name </p>
-        <input class="registerText"  type="text" id="regusername" name="text" placeholder="Desired username" required="required"/>
-      <p> About You </p>
-      <textarea class="registerTextArea" id="regabout" name="textarea" rows="10" cols="50"> Tell us about yourself! </textarea>
+      <h5 class="center"> Picture </h5>
+        <input class="formRound" class="registerText" type="img" id="regpic" name="photo" placeholder="Share a photo!">
+      <h5 class="center"> Name </h5>
+        <input class="formRound"  class="registerText"  type="text" id="regname" name="name" placeholder="What is your name?" required="required"/>
+      <h5 class="center"> User Name </h5>
+        <input class="formRound" class="registerText"  type="text" id="regusername" name="text" placeholder="Desired username" required="required"/>
+      <h5 class="center"> About You </h5>
+      <textarea class="formRound" class="registerTextArea" id="regabout" name="textarea" rows="10" cols="50"> Tell us about yourself! </textarea>
 
-      <p><input type="submit" id="regbutton" value="Let's Go Doggie Dating!"/></p>
+      <h5 class="center"><input type="submit" id="regbutton" class="button round" value="Let's Go Doggie Dating!"/></h5>
     </form>
   </div>
   <script src="vendor/jquery.min.js"></script>
