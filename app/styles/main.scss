@@ -42,6 +42,10 @@ html form {
 	margin: 5%;
 }
 
+html {
+	height: 100%;
+}
+
 html body {
 background-color: $light-green;
 }
@@ -49,6 +53,8 @@ background-color: $light-green;
 html h1 {
 	color: $red-color;
     font-size: 3em;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;   
 }
 
 
