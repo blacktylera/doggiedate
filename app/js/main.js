@@ -66,10 +66,11 @@ $('.Register form').submit(function(event){
   var $name = $('#regname').val();
   var $username = $('#regusername').val();
   var $about = $('#regabout').val();
-  var $regButton = $('#regbutton');
   var profileData = ({'pic_url': $pic, 'name': $name, 'user_name': $username, 'about': $about});
 
   event.preventDefault();
   usersFb.push(profileData);
   window.location.href='./profile.html';
 });
+
+
