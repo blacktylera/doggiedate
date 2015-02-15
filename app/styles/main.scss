@@ -7,8 +7,36 @@ $red-color: #ff6f69;
 $light-green: #88d8b0;
 $darker-green: #96ceb4;
 
+
+.center {
+	text-align: center;
+}
+
+html body div .formRound {
+	margin: 5% 0;
+	border-radius: 7px;
+	border: 3px solid $darker-green;
+}
+
+
+
+html form {
+	margin: 0 auto;
+	width: 300px;
+}
+
+.round.button {
+	background-color: $light-green;
+	margin: 5%;
+}
+
 html body {
-background-color: $primary-color;
+background-color: $beige-color;
+}
+
+html h1 {
+	color: $red-color;
+    font-size: 3em;
 }
 
 
@@ -21,3 +49,4 @@ background-color: $primary-color;
   max-width:300px;
 
 }
+
