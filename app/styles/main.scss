@@ -6,8 +6,11 @@ $beige-color: #ffeead;
 $red-color: #ff6f69;
 $light-green: #88d8b0;
 $darker-green: #96ceb4;
+$blue-color: #427092;
+
 
 $font-stack: 'Libre Baskerville', serif;
+$dancingScript: 'Dancing Script', serif;
 
 
 html body {
@@ -15,13 +18,7 @@ html body {
 }
 
 
-html body .Register {
-	border: 3px solid $primary-color;
-	width: 70% ;
-	height: 100%;
-	margin: 0 auto;
-	background-color: $beige-color;
-}
+
 .center {
 	text-align: center;
 }
@@ -52,11 +49,31 @@ html body {
 background-color: $light-green;
 }
 
-html h1 {
+html h1, {
 	color: $red-color;
-    font-size: 3em;
+    font-size: 3rem;
     font-family: $font-stack;
-    font-weight: bold;   
+    font-weight: bold; 
+}
+
+html {
+	h2, h3 {
+		font-family: $dancingScript;
+		color: $blue-color;
+		
+
+	}
+}
+
+
+//register specific styls 
+
+html body .Register {
+	border: 3px solid $primary-color;
+	width: 70% ;
+	height: 100%;
+	margin: 0 auto;
+	background-color: $beige-color;
 }
 
 
@@ -69,4 +86,5 @@ html h1 {
   max-width:300px;
 
 }
+
 
