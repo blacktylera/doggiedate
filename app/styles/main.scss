@@ -8,6 +8,18 @@ $light-green: #88d8b0;
 $darker-green: #96ceb4;
 
 
+html body {
+	width: 100%;
+}
+
+
+html body .Register {
+	border: 3px solid $primary-color;
+	width: 70% ;
+	height: 100%;
+	margin: 0 auto;
+	background-color: $beige-color;
+}
 .center {
 	text-align: center;
 }
@@ -31,7 +43,7 @@ html form {
 }
 
 html body {
-background-color: $beige-color;
+background-color: $light-green;
 }
 
 html h1 {
