@@ -70,6 +70,6 @@ $('.register form').submit(function(event){
   var profileData = ({'pic_url': $pic, 'name': $name, 'user_name': $username, 'about': $about});
 
   event.preventDefault();
-  usersFb.push(profileData);
+  usersFb.push(profileData); 
   window.location.href='./profile.html';
 });
