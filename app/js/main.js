@@ -61,7 +61,7 @@ function registerAndLogin(obj, cb) {
 //pushing data to database as an event handler on the register form. And then taking you to your profile page where we can GET from firebase what we just pushed?
 //
 
-$('.Register form').submit(function(event){
+$('.register form').submit(function(event){
   var $pic = $('#regpic').val();
   var $name = $('#regname').val();
   var $username = $('#regusername').val();
