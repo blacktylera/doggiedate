@@ -40,7 +40,7 @@
   });
   function like() {
     $('#likeButton').on('click', function () {
-      
+
     })
     function dislike () {
       $('user_container').hide();
