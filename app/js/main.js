@@ -6,6 +6,10 @@ var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
 
 if (fb.getAuth()) {
  usersFb = fb.child('users/' + fb.getAuth().uid);
+ usersFb.once('value', function (res){
+  var data = res.val();
+  populateProf(data);
+});
 }
 
 $('.login input[type="button"]').click(function (event) {
@@ -74,20 +78,17 @@ $('.register form').submit(function(event){
   window.location.href='./profile.html';
 });
 
-$(window).load(populateProf);
-
-function populateProf(){
-  usersFb.once('value', function (res){
-  var data = res.val();
+function populateProf(data){
   $('#headShot').append('<img src=' + data.pic_url + '></img>');
   $('#userName').append('<h3>' + data.user_name + '</h3>');
   $('#aboutUser').append('<p>' + data.about + '</p>');
-  });
 }
+
 
 $('.logout').click(function(){
   fb.unauth();
   location.href='./index.html';
 });
+
 
 
