@@ -2,6 +2,7 @@
 @import "../vendor/foundation.css";
 
 $primary-color: #ffcc5c; //orange
+$primary-dark: #e5b752;
 $beige-color: #ffeead;
 $red-color: #ff6f69;
 $light-green: #88d8b0;
@@ -43,9 +44,18 @@ html form {
 	width: 300px;
 }
 
+// html body div form {
+//  .button.round {
+// 	margin-right: 0px;
+//     }
+//  .button.registerBttn {
+//  	margin-right: 40px
+//  }
+// } 
+
 .round.button {
 	background-color: orange;
-	margin: 5%;
+	// margin: 5%;
 }
 
 
@@ -68,7 +78,8 @@ html h1, {
 }
 
 html {
-	h2, h3 {
+	h2, 
+	h3 {
 		font-family: $dancingScript;
 		color: $blue-color;
 		margin: 3rem; 
@@ -92,10 +103,32 @@ html{
 			}
 
 			.button:hover {
-				background-color: $darker-green;
+				background-color: $primary-dark;
 			}
 			.button:focus {
+				background-color: $primary-dark;
+			}
+			.logout.button,
+			.to_profile.button {                 //Search page specific style
+				margin: 5% 5px 10%;
+			}
+			.button.like,
+			.button.dislike {					 //Search page specific style
+				background-color: $light-green;
+			}
+			.button.dislike:hover,
+			.button.like:hover {                 //Search page specific style
 				background-color: $darker-green;
+			}
+			.button.dislike:focus,
+			.button.like:focus {                 //Search page specific style
+				background-color: $darker-green;
+			}
+			div {
+				p {
+					width: 300px;
+    				margin: -20px auto 15%;
+				}
 			}
 		}
 	}
@@ -104,13 +137,16 @@ html{
 
 //register specific styls 
 
-html body .register {
+html body {
+	.register {
 	border: 3px solid $primary-color;
 	width: 70% ;
 	margin: 0 auto;
 	background-color: $beige-color;
 	height: auto;
+    }
 }
+
 
 
 .registerTextArea {
