@@ -85,11 +85,42 @@ function populateProf(data){
   $('#aboutUser').append('<p>' + data.about + '</p>');
 }
 
+//logout of user
 
 $('.logout').click(function(){
   fb.unauth();
   location.href='./index.html';
 });
+
+//go to search matches page
+
+$('.search').click(function(){
+  location.href='./searchusers.html';
+});
+
+//appending users to search page maybe need to append data attribute here?
+
+var usersref = new Firebase('https://doggie-date.firebaseio.com/users');
+
+usersref.once('value', function(res){
+  var data = res.val();
+  $.each(data, function( key, info ) {
+    $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
+    $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
+    $('#usercontainer').append('<p>' + info.about + '</p>');
+    });
+});
+
+
+//usersref.once('value', function(res){
+  //var data = res.val();
+  //$.each(data, function( key, info ) {
+    //var array = $.map(info, function(value, index){
+    //return [value];
+    //});
+   //$('#user-container').append('<div><h3>' + array + '</h3></div>');
+    //});
+//});
 
 
 
