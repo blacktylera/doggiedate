@@ -23,6 +23,13 @@ html body {
 	text-align: center;
 }
 
+.center img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid $red-color;
+}
+
 html body div .formRound {
 	margin: 5% 0;
 	border-radius: 7px;
@@ -37,7 +44,7 @@ html form {
 }
 
 .round.button {
-	background-color: $light-green;
+	background-color: orange;
 	margin: 5%;
 }
 
@@ -115,6 +122,7 @@ html body .register {
   max-width:300px;
 
 }
+
 
 
 

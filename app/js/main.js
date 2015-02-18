@@ -6,6 +6,10 @@ var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
 
 if (fb.getAuth()) {
  usersFb = fb.child('users/' + fb.getAuth().uid);
+ usersFb.once('value', function (res){
+  var data = res.val();
+  populateProf(data);
+});
 }
 
 $('.login input[type="button"]').click(function (event) {
@@ -72,23 +76,52 @@ $('.register form').submit(function(event){
 
   usersFb.set(profileData);
 
-  window.location.href='./profile.html';
+  goToProfile();
 });
 
-$(window).load(populateProf);
-
-function populateProf(){
-  usersFb.once('value', function (res){
-  var data = res.val();
+function populateProf(data){
   $('#headShot').append('<img src=' + data.pic_url + '></img>');
   $('#userName').append('<h3>' + data.user_name + '</h3>');
   $('#aboutUser').append('<p>' + data.about + '</p>');
-  });
 }
+
+//logout of user
 
 $('.logout').click(function(){
   fb.unauth();
   location.href='./index.html';
 });
+
+function goToProfile(){
+  window.location.href='./profile.html';
+}
+
+$('.to_profile').click(goToProfile);
+
+//go to search matches page
+
+$('.search').click(function(){
+  location.href='./searchusers.html';
+});
+
+//appending users to search page maybe need to append data attribute here?
+
+
+var usersRef = new Firebase('https://doggie-date.firebaseio.com/users');
+
+usersRef.once('value', function(res){
+  var data = res.val();
+  $.each(data, function( key, info ) {
+    $('#usercontainer').append('<button class=like>LIKE</button>');
+    $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
+    $('#usercontainer').append('<button class=dislike>DISLIKE</button>');
+    $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
+    $('#usercontainer').append('<p>' + info.about + '</p>');
+    });
+    $('.like').click(function(){
+  console.log('hello world');
+  });
+});
+
 
 
