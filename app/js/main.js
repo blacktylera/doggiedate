@@ -76,7 +76,7 @@ $('.register form').submit(function(event){
 
   usersFb.set(profileData);
 
-  window.location.href='./profile.html';
+  goToProfile();
 });
 
 function populateProf(data){
@@ -92,6 +92,12 @@ $('.logout').click(function(){
   location.href='./index.html';
 });
 
+function goToProfile(){
+  window.location.href='./profile.html';
+}
+
+$('.to_profile').click(goToProfile);
+
 //go to search matches page
 
 $('.search').click(function(){
@@ -100,27 +106,22 @@ $('.search').click(function(){
 
 //appending users to search page maybe need to append data attribute here?
 
-var usersref = new Firebase('https://doggie-date.firebaseio.com/users');
 
-usersref.once('value', function(res){
+var usersRef = new Firebase('https://doggie-date.firebaseio.com/users');
+
+usersRef.once('value', function(res){
   var data = res.val();
   $.each(data, function( key, info ) {
+    $('#usercontainer').append('<button class=like>LIKE</button>');
     $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
+    $('#usercontainer').append('<button class=dislike>DISLIKE</button>');
     $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
     $('#usercontainer').append('<p>' + info.about + '</p>');
     });
+    $('.like').click(function(){
+  console.log('hello world');
+  });
 });
-
-
-//usersref.once('value', function(res){
-  //var data = res.val();
-  //$.each(data, function( key, info ) {
-    //var array = $.map(info, function(value, index){
-    //return [value];
-    //});
-   //$('#user-container').append('<div><h3>' + array + '</h3></div>');
-    //});
-//});
 
 
 
