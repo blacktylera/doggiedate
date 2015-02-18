@@ -117,11 +117,21 @@ usersRef.once('value', function(res){
     $('#usercontainer').append('<button class=dislike>DISLIKE</button>');
     $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
     $('#usercontainer').append('<p>' + info.about + '</p>');
+//    $('button').attr('data-uuid', );
     });
-    $('.like').click(function(){
-  console.log('hello world');
-  });
+    $('.like').on('click', likeUser);
+    $('.dislike').on('click', disLikeUser);
 });
+
+function likeUser(event){
+event.preventDefault();
+console.log()
+}
+
+function disLikeUser(event){
+event.preventDefault();
+}
+
 
 
 
