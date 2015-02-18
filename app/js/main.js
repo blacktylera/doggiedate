@@ -2,7 +2,7 @@ var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
     fb             = new Firebase(FIREBASE_URL),
     usersFb;
 
-//loginand register//
+//login and register//
 
 if (fb.getAuth()) {
  usersFb = fb.child('users/' + fb.getAuth().uid);
@@ -112,9 +112,9 @@ var usersRef = new Firebase('https://doggie-date.firebaseio.com/users');
 usersRef.once('value', function(res){
   var data = res.val();
   $.each(data, function( key, info ) {
-    $('#usercontainer').append('<button class=like>LIKE</button>');
+    $('#usercontainer').append('<button class="like button round">LIKE</button>');
     $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
-    $('#usercontainer').append('<button class=dislike>DISLIKE</button>');
+    $('#usercontainer').append('<button class="dislike button round" >DISLIKE</button>');
     $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
     $('#usercontainer').append('<p>' + info.about + '</p>');
     });
