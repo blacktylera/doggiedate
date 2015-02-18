@@ -103,6 +103,18 @@ html{
 			.to_profile.button {                 //Search page specific styles
 				margin: 5% 5px 10%;
 			}
+			.button.like,
+			.button.dislike {
+				background-color: $light-green;
+			}
+			.button.dislike:hover,
+			.button.like:hover {
+				background-color: $darker-green;
+			}
+			.button.dislike:focus,
+			.button.like:focus {
+				background-color: $darker-green;
+			}
 			div {
 				p {
 					width: 300px;
