@@ -2,6 +2,7 @@
 @import "../vendor/foundation.css";
 
 $primary-color: #ffcc5c; //orange
+$promary-dark: #e5b752;
 $beige-color: #ffeead;
 $red-color: #ff6f69;
 $light-green: #88d8b0;
@@ -68,7 +69,8 @@ html h1, {
 }
 
 html {
-	h2, h3 {
+	h2, 
+	h3 {
 		font-family: $dancingScript;
 		color: $blue-color;
 		margin: 3rem; 
@@ -92,10 +94,10 @@ html{
 			}
 
 			.button:hover {
-				background-color: $darker-green;
+				background-color: $promary-dark;
 			}
 			.button:focus {
-				background-color: $darker-green;
+				background-color: $promary-dark;
 			}
 			.logout.button,
 			.to_profile.button {                 //Search page specific styles
