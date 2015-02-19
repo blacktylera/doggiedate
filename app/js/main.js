@@ -1,12 +1,14 @@
 var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
     fb             = new Firebase(FIREBASE_URL),
-    usersFb;
+    usersFb,
+    usersRef       = new Firebase('https://doggie-date.firebaseio.com/users/');
+
 
 //login and register//
 
 if (fb.getAuth()) {
  usersFb = fb.child('users/' + fb.getAuth().uid);
- usersFb.once('value', function (res){
+ usersFb.child('/profile').once('value', function (res){
   var data = res.val();
   populateProf(data);
 });
@@ -62,8 +64,7 @@ function registerAndLogin(obj, cb) {
 
 
 
-//pushing data to database as an event handler on the register form. And then taking you to your profile page where we can GET from firebase what we just pushed?
-//
+//using .set() to set profile data to firebase
 
 $('.register form').submit(function(event){
   var $pic = $('#regpic').val();
@@ -71,10 +72,13 @@ $('.register form').submit(function(event){
   var $username = $('#regusername').val();
   var $about = $('#regabout').val();
   var profileData = ({'pic_url': $pic, 'name': $name, 'user_name': $username, 'about': $about});
+  var matchData = ({'Likes': '', 'Dislikes' : '', 'Matches' : ''});
+
 
   event.preventDefault();
 
-  usersFb.set(profileData);
+  usersFb.child('/profile').set(profileData);
+  usersFb.child('/matchdata').set(matchData);
 
   goToProfile();
 });
@@ -106,18 +110,17 @@ $('.search').click(function(){
 
 //appending users to search page maybe need to append data attribute here?
 
-
-var usersRef = new Firebase('https://doggie-date.firebaseio.com/users');
-
 usersRef.once('value', function(res){
   var data = res.val();
+  console.log(usersRef);
   $.each(data, function( key, info ) {
     $('#usercontainer').append('<button class="like button round">LIKE</button>');
     $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
     $('#usercontainer').append('<button class="dislike button round" >DISLIKE</button>');
     $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
     $('#usercontainer').append('<p>' + info.about + '</p>');
-//    $('button').attr('data-uuid', );
+
+   //  $('button').attr('data-uuid', this);
     });
     $('.like').on('click', likeUser);
     $('.dislike').on('click', disLikeUser);
@@ -125,7 +128,6 @@ usersRef.once('value', function(res){
 
 function likeUser(event){
 event.preventDefault();
-console.log()
 }
 
 function disLikeUser(event){
