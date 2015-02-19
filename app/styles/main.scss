@@ -10,8 +10,18 @@ $darker-green: #87b9a2;
 $blue-color: #427092;
 
 
+//opacity; 75%;
+
+
 $font-stack: 'Libre Baskerville', serif;
 $dancingScript: 'Dancing Script', serif;
+
+
+input[type='button'],
+input[type='restet'],
+input[type='submit'] {
+  cursor: pointer;
+}
 
 
 html body {
