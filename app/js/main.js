@@ -108,28 +108,34 @@ $('.search').click(function(){
   location.href='./searchusers.html';
 });
 
+//appends users to page and assigns their uuid as data-attribute
 
 usersRef.once('value', function(res){
   var data = res.val();
    $.each(data, function( key, info ) {
-    $('#usercontainer').append('<button class="like button round">LIKE</button>');
-    $('#usercontainer').append('<img src=' + info.profile.pic_url + '></img>');
-    $('#usercontainer').append('<button class="dislike button round" >DISLIKE</button>');
-    $('#usercontainer').append('<h3>' + info.profile.user_name + '</h3>');
-    $('#usercontainer').append('<p>' + info.profile.about + '</p>');
-
-   //  $('button').attr('data-uuid', this);
+    var $userDiv = $('<div class="potentialMatch"><button class="like button round">LIKE</button><img src=' + info.profile.pic_url +
+                     '></img><button class="dislike button round" >DISLIKE</button><h3>' + info.profile.user_name + '</h3><p>' + info.profile.about + '</p>');
+    $('#usercontainer').append($userDiv);
+    $userDiv.attr('data-uuid', key);
     });
     $('.like').on('click', likeUser);
     $('.dislike').on('click', disLikeUser);
 });
 
+//click event to send uuid to the Like database
+
 function likeUser(event){
 event.preventDefault();
+var likeObject = $(this).parent().data();
+usersFb.child('/matchdata/Likes').push(likeObject);
 }
+
+//click even to send uuid to the disLike databse
 
 function disLikeUser(event){
 event.preventDefault();
+var disLikeObject = $(this).parent().data();
+usersFb.child('/matchdata/Dislikes').push(disLikeObject);
 }
 
 
