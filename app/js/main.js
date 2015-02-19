@@ -108,17 +108,15 @@ $('.search').click(function(){
   location.href='./searchusers.html';
 });
 
-//appending users to search page maybe need to append data attribute here?
 
 usersRef.once('value', function(res){
   var data = res.val();
-  console.log(usersRef);
-  $.each(data, function( key, info ) {
+   $.each(data, function( key, info ) {
     $('#usercontainer').append('<button class="like button round">LIKE</button>');
-    $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
+    $('#usercontainer').append('<img src=' + info.profile.pic_url + '></img>');
     $('#usercontainer').append('<button class="dislike button round" >DISLIKE</button>');
-    $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
-    $('#usercontainer').append('<p>' + info.about + '</p>');
+    $('#usercontainer').append('<h3>' + info.profile.user_name + '</h3>');
+    $('#usercontainer').append('<p>' + info.profile.about + '</p>');
 
    //  $('button').attr('data-uuid', this);
     });
