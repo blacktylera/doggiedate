@@ -44,14 +44,6 @@ html form {
 	width: 300px;
 }
 
-// html body div form {
-//  .button.round {
-// 	margin-right: 0px;
-//     }
-//  .button.registerBttn {
-//  	margin-right: 40px
-//  }
-// } 
 
 .round.button {
 	background-color: orange;
@@ -135,7 +127,7 @@ html{
 }
 
 
-//register specific styls 
+//register specific styles 
 
 html body {
 	.register {
@@ -160,6 +152,10 @@ html body {
 }
 
 
+// Profile specific styles
 
+#profileLogoutBttn {
+	margin: 0;
+}
 
 
