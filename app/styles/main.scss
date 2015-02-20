@@ -10,67 +10,46 @@ $darker-green: #87b9a2;
 $blue-color: #427092;
 
 
-//opacity; 75%;
-
-
 $font-stack: 'Libre Baskerville', serif;
 $dancingScript: 'Dancing Script', serif;
 
 
 
 
-html body {
-	width: 100%;
-}
-
-
-
-.center {
+.center {                                        //class #center used throughout markup to.... you guessed it "center things!"
 	text-align: center;
 }
-
-.center img {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  border: 2px solid $red-color;
-}
-
-html body div .formRound {
-	margin: 5% 0;
-	border-radius: 7px;
-	border: 3px solid $darker-green;
-}
-
-
-
-html form {
-	margin: 0 auto;
-	width: 300px;
-}
-
-
-
 
 
 
 html {
-	height: 100%;
+	body {                                       //green color on body div happens here. 
+    	background-color: $light-green;
+	}
 }
 
-html body {
-background-color: $light-green;
+html {
+	body {
+		.beigeContainer {                       //sets beige color and width for main content divs  
+			border: 3px solid $primary-color;
+			width: 70% ;
+			margin: 0 auto;
+			background-color:$beige-color;
+			height: 100%;
+		}
+	}
 }
 
-html h1, {
+
+
+html {
+	h1, {                                         //font styling for h1 h2 h3's   
 	color: $red-color;
     font-size: 3rem;
     font-family: $font-stack;
     font-weight: bold; 
     margin-top: 1.5rem;
 }
-
-html {
 	h2, 
 	h3 {
 		font-family: $dancingScript;
@@ -80,13 +59,40 @@ html {
 	}
 }
 
-html body .beigeContainer {
-	border: 3px solid $primary-color;
-	width: 70% ;
-	margin: 0 auto;
-	background-color:$beige-color;
-	height: 100%;
+
+
+.center img {                                    //rounds and sizes all headshot images 
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid $red-color;
 }
+
+ 
+
+html {
+	body {
+		 div {
+			.formRound {                          //rounds FORM input boxes
+				margin: 5% 0;
+				border-radius: 7px;
+				border: 3px solid $darker-green;
+			}
+		}
+	}
+}
+
+
+
+html {
+	form {                                        //centers FORM on pages 
+		margin: 0 auto;
+		width: 300px;
+	}
+}
+
+
+
 
 html{
 	body{
@@ -98,10 +104,7 @@ html{
 			.button {
 	        	background-color: $primary-color;
 	        	cursor: pointer;
-
-
             }
-
 
 			.button:hover {
 				background-color: $primary-dark;
