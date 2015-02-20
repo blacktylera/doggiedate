@@ -17,11 +17,6 @@ $font-stack: 'Libre Baskerville', serif;
 $dancingScript: 'Dancing Script', serif;
 
 
-input[type='button'],
-input[type='restet'],
-input[type='submit'] {
-  cursor: pointer;
-}
 
 
 html body {
@@ -55,10 +50,6 @@ html form {
 }
 
 
-.round.button {
-	background-color: orange;
-	// margin: 5%;
-}
 
 
 
@@ -103,6 +94,14 @@ html{
 			h5 {
 				margin: 2rem 0 0;
 			}
+
+			.button {
+	        	background-color: $primary-color;
+	        	cursor: pointer;
+
+
+            }
+
 
 			.button:hover {
 				background-color: $primary-dark;
