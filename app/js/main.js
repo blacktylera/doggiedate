@@ -128,6 +128,7 @@ function likeUser(event){
 event.preventDefault();
 var likeObject = $(this).parent().data();
 usersFb.child('/matchdata/Likes').push(likeObject);
+$(this).parent().hide();
 }
 
 //click even to send uuid to the disLike databse
@@ -136,6 +137,7 @@ function disLikeUser(event){
 event.preventDefault();
 var disLikeObject = $(this).parent().data();
 usersFb.child('/matchdata/Dislikes').push(disLikeObject);
+$(this).parent().hide();
 }
 
 
