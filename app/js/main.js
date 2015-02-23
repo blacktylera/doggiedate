@@ -1,12 +1,14 @@
 var FIREBASE_URL   = 'https://doggie-date.firebaseio.com',
     fb             = new Firebase(FIREBASE_URL),
-    usersFb;
+    usersFb,
+    usersRef       = new Firebase('https://doggie-date.firebaseio.com/users/');
+
 
 //login and register//
 
 if (fb.getAuth()) {
  usersFb = fb.child('users/' + fb.getAuth().uid);
- usersFb.once('value', function (res){
+ usersFb.child('/profile').once('value', function (res){
   var data = res.val();
   populateProf(data);
 });
@@ -62,8 +64,7 @@ function registerAndLogin(obj, cb) {
 
 
 
-//pushing data to database as an event handler on the register form. And then taking you to your profile page where we can GET from firebase what we just pushed?
-//
+//using .set() to set profile data to firebase
 
 $('.register form').submit(function(event){
   var $pic = $('#regpic').val();
@@ -71,10 +72,13 @@ $('.register form').submit(function(event){
   var $username = $('#regusername').val();
   var $about = $('#regabout').val();
   var profileData = ({'pic_url': $pic, 'name': $name, 'user_name': $username, 'about': $about});
+  var matchData = ({'Likes': '', 'Dislikes' : '', 'Matches' : ''});
+
 
   event.preventDefault();
 
-  usersFb.set(profileData);
+  usersFb.child('/profile').set(profileData);
+  usersFb.child('/matchdata').set(matchData);
 
   goToProfile();
 });
@@ -104,24 +108,38 @@ $('.search').click(function(){
   location.href='./searchusers.html';
 });
 
-//appending users to search page maybe need to append data attribute here?
-
-
-var usersRef = new Firebase('https://doggie-date.firebaseio.com/users');
+//appends users to page and assigns their uuid as data-attribute
 
 usersRef.once('value', function(res){
   var data = res.val();
-  $.each(data, function( key, info ) {
-    $('#usercontainer').append('<button class="like button round">LIKE</button>');
-    $('#usercontainer').append('<img src=' + info.pic_url + '></img>');
-    $('#usercontainer').append('<button class="dislike button round" >DISLIKE</button>');
-    $('#usercontainer').append('<h3>' + info.user_name + '</h3>');
-    $('#usercontainer').append('<p>' + info.about + '</p>');
+   $.each(data, function( key, info ) {
+    var $userDiv = $('<div class="potentialMatch"><button class="like button round">LIKE</button><img src=' + info.profile.pic_url +
+                     '></img><button class="dislike button round" >DISLIKE</button><h3>' + info.profile.user_name + '</h3><p>' + info.profile.about + '</p>');
+    $('#usercontainer').append($userDiv);
+    $userDiv.attr('data-uuid', key);
     });
-    $('.like').click(function(){
-  console.log('hello world');
-  });
+    $('.like').on('click', likeUser);
+    $('.dislike').on('click', disLikeUser);
 });
+
+//click event to send uuid to the Like database
+
+function likeUser(event){
+event.preventDefault();
+var likeObject = $(this).parent().data();
+usersFb.child('/matchdata/Likes').push(likeObject);
+$(this).parent().hide();
+}
+
+//click even to send uuid to the disLike databse
+
+function disLikeUser(event){
+event.preventDefault();
+var disLikeObject = $(this).parent().data();
+usersFb.child('/matchdata/Dislikes').push(disLikeObject);
+$(this).parent().hide();
+}
+
 
 
 
