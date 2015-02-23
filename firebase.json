@@ -1,0 +1,9 @@
+{
+  "firebase": "doggie-date",
+  "public": "./public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
