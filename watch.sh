@@ -13,15 +13,23 @@ nodemon -e html,css --watch app \
   --exec "cd app; find . -type f \( -name '*.html' -o -name '*.css' \) | cpio -pdvm ../public; cd .." &
 
 nodemon --watch app/js \
-  --exec "cd app; find . -type f \( -name '*.js' \) | cpio -pdvm ../public; cd .." &
+  --exec "cd app; find . -type f \( -o -name '*.js' \) | cpio -pdvm ../public; cd .." &
 
 # Copy bower_components js files
 mkdir public/vendor
 cp bower_components/jquery/dist/jquery.min.js public/vendor
+cp bower_components/jquery/dist/jquery.min.map public/vendor
 cp bower_components/lodash/lodash.min.js public/vendor
+cp bower_components/firebase/firebase.js public/vendor
+cp bower_components/foundation/css/foundation.css public/vendor
+cp bower_components/foundation/css/normalize.css public/vendor
+cp bower_components/foundation/css/normalize.css.map public/vendor
+cp bower_components/foundation/css/foundation.css.map public/vendor
+
+
 
 ###############################
-# Jade (npm intalled locally) #
+# Jade (npm installed locally) #
 ###############################
 
 # Render Jade

@@ -1,0 +1,174 @@
+@import "../vendor/normalize.css";
+@import "../vendor/foundation.css";
+
+$primary-color: #ffcc5c; //orange
+$primary-dark: #e5b752;
+$beige-color: #ffeead;
+$red-color: #ff6f69;
+$light-green: #88d8b0;
+$darker-green: #87b9a2;
+$blue-color: #427092;
+
+
+//opacity; 75%;
+
+
+$font-stack: 'Libre Baskerville', serif;
+$dancingScript: 'Dancing Script', serif;
+
+
+input[type='button'],
+input[type='restet'],
+input[type='submit'] {
+  cursor: pointer;
+}
+
+
+html body {
+	width: 100%;
+}
+
+
+
+.center {
+	text-align: center;
+}
+
+.center img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid $red-color;
+}
+
+html body div .formRound {
+	margin: 5% 0;
+	border-radius: 7px;
+	border: 3px solid $darker-green;
+}
+
+
+
+html form {
+	margin: 0 auto;
+	width: 300px;
+}
+
+
+.round.button {
+	background-color: orange;
+	// margin: 5%;
+}
+
+
+
+
+html {
+	height: 100%;
+}
+
+html body {
+background-color: $light-green;
+}
+
+html h1, {
+	color: $red-color;
+    font-size: 3rem;
+    font-family: $font-stack;
+    font-weight: bold; 
+    margin-top: 1.5rem;
+}
+
+html {
+	h2, 
+	h3 {
+		font-family: $dancingScript;
+		color: $blue-color;
+		margin: 3rem; 
+
+	}
+}
+
+html body .beigeContainer {
+	border: 3px solid $primary-color;
+	width: 70% ;
+	margin: 0 auto;
+	background-color:$beige-color;
+	height: 100%;
+}
+
+html{
+	body{
+		div {
+			h5 {
+				margin: 2rem 0 0;
+			}
+
+			.button:hover {
+				background-color: $primary-dark;
+			}
+			.button:focus {
+				background-color: $primary-dark;
+			}
+			.logout.button,
+			.to_profile.button {                 //Search page specific style
+				margin: 5% 5px 10%;
+			}
+			.button.like,
+			.button.dislike {					 //Search page specific style
+				background-color: $light-green;
+			}
+			.button.dislike:hover,
+			.button.like:hover {                 //Search page specific style
+				background-color: $darker-green;
+			}
+			.button.dislike:focus,
+			.button.like:focus {                 //Search page specific style
+				background-color: $darker-green;
+			}
+			div {
+				p {
+					width: 300px;
+    				margin: -20px auto 15%;
+				}
+			}
+		}
+	}
+}
+
+
+//register specific styles 
+
+html body {
+	.register {
+	border: 3px solid $primary-color;
+	width: 70% ;
+	margin: 0 auto;
+	background-color: $beige-color;
+	height: auto;
+    }
+}
+
+
+
+.registerTextArea {
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.registerText {
+  max-width:300px;
+
+}
+
+
+// Profile specific styles
+
+
+
+
+#profileLogoutBttn {
+	margin: 0;
+}
+
+
